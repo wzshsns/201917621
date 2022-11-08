@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link href="./img/icon.ico" rel="short icon">
+    <link rel="styleSheet" href="./css/common.css">
+    <link rel="styleSheet" href="./css/external.css">
+    <link rel="styleSheet" href="./css/aboutM.css">
+</head>
+
+<body>
+    <header>
+        <span><a href="./index.html">首页</a></span>
+        <span>|</span>
+        <span><a href="aboutM.html">关于我</a></span>
+    </header>
+    <h2>关于我是谁，双枪会给出答案</h2>
+    <div>
+        <p id="char-count">还能输入500字</p>
+        <form action="/msg/commit" method="post">
+            <textarea name="msg" id="ta" required></textarea><br>
+            <button>提交</button>
+            <button>你提交了我也看不到哈哈</button>
+        </form>
+    </div>
+
+</body>
+</html>
+<script>
+    var charCount = document.getElementById("char-count");
+    var ta = document.getElementById("ta")
+    ta.oninput = function () {
+        var remanent = 500 - ta.value.length;
+        charCount.textContent = "还能输入" + remanent + "字"
+        if (remanent < 0) {
+            ta.value = ta.value.substr(0, 500);
+            charCount.textContent = "还能输入0字"
+        }
+    }
+</script>
